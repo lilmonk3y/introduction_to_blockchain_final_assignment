@@ -1,0 +1,138 @@
+{
+	"compiler": {
+		"version": "0.8.23+commit.f704f362"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "functions",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "reward",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "publisher",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "rewardPaid",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "expressions",
+						"type": "uint256[]"
+					}
+				],
+				"name": "publishFunction",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "functionId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minimum",
+						"type": "uint256"
+					}
+				],
+				"name": "submitMinimum",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"FunctionMinimization\n.sol": "FunctionMinimization"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BancorPower.sol": {
+			"keccak256": "0x57af7d4dbd6838243123a74ab2ffb1547105204c64d2f24d0352ea184c41db38",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d1de09b93e7d26869162c0ecc0bb08997a0efa35d41d3296bb8cfc96b70bd6fa",
+				"dweb:/ipfs/QmYSYmwummE7v3GA3ukHrkEwSjLnafXQzj5CN8QP7HZNoc"
+			]
+		},
+		"Equation.sol": {
+			"keccak256": "0x2f863c44d5ce98a73406f2097b39de6262a15f4226b3e1c192aeacd47c981975",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48a424f425dfb61ebc373af4e421b21614e236f4c4aef8bb8c389c5dc6287ccd",
+				"dweb:/ipfs/QmRapP5GtPmRr88KJHLD9iWL81qmQCPxpUVXH2uqZ6inks"
+			]
+		},
+		"FunctionMinimization\n.sol": {
+			"keccak256": "0x661db1db2ba447a61236882a137b039f67c47fb1d962c44a88cef5a36ea7add5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3c3c6b86b9f6e727f373b6ebb6d6947371df4e263e38c50d452ee7605cadc5fd",
+				"dweb:/ipfs/QmWrLg9jrnDcPtJqMMFtHUaLPDYcuAaoWxt8a9ogUDfvaY"
+			]
+		},
+		"openzeppelin-solidity/contracts/math/SafeMath.sol": {
+			"keccak256": "0x0c1300c35c12691b679fb7084ffa234e0b02067a3bdeb0731c406df87144df9e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://60b3868bf8e52d578558e064a0456c0e22d23afa64d8d3e12edd6329a2b7a302",
+				"dweb:/ipfs/QmRzEYJmUfZ8DToEaLVaCbKg6GQgvnrTZamfQ5vsHZcZGr"
+			]
+		}
+	},
+	"version": 1
+}

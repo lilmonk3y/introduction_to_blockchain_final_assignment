@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.23+commit.f704f362"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"init(Equation.Node[] storage,uint256[])": {
+					"details": "Initialize equation by array of opcodes/values in prefix order. Array is read as if it is the *pre-order* traversal of the expression tree."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"calculate(Equation.Node[] storage,uint256)": {
+					"notice": "Calculate the Y position from the X position for this equation."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Equation.sol": "Equation"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BancorPower.sol": {
+			"keccak256": "0x57af7d4dbd6838243123a74ab2ffb1547105204c64d2f24d0352ea184c41db38",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d1de09b93e7d26869162c0ecc0bb08997a0efa35d41d3296bb8cfc96b70bd6fa",
+				"dweb:/ipfs/QmYSYmwummE7v3GA3ukHrkEwSjLnafXQzj5CN8QP7HZNoc"
+			]
+		},
+		"Equation.sol": {
+			"keccak256": "0x2f863c44d5ce98a73406f2097b39de6262a15f4226b3e1c192aeacd47c981975",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48a424f425dfb61ebc373af4e421b21614e236f4c4aef8bb8c389c5dc6287ccd",
+				"dweb:/ipfs/QmRapP5GtPmRr88KJHLD9iWL81qmQCPxpUVXH2uqZ6inks"
+			]
+		},
+		"openzeppelin-solidity/contracts/math/SafeMath.sol": {
+			"keccak256": "0x0c1300c35c12691b679fb7084ffa234e0b02067a3bdeb0731c406df87144df9e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://60b3868bf8e52d578558e064a0456c0e22d23afa64d8d3e12edd6329a2b7a302",
+				"dweb:/ipfs/QmRzEYJmUfZ8DToEaLVaCbKg6GQgvnrTZamfQ5vsHZcZGr"
+			]
+		}
+	},
+	"version": 1
+}

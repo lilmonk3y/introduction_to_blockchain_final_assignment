@@ -1,0 +1,135 @@
+{
+	"compiler": {
+		"version": "0.8.23+commit.f704f362"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "bothPlayed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hash",
+						"type": "bytes32"
+					}
+				],
+				"name": "commit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "player",
+						"type": "uint8"
+					}
+				],
+				"name": "hasPlayed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pendingRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum MatchingPennies.PennyValue",
+						"name": "penny",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					}
+				],
+				"name": "reveal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Cada jugador apuesta 0.001 ETH (1.000.000 gwei), el ganador se lleva todo. Para jugar es necesario enviar 0.002 ETH. El perdedor recibirá 0.001 ETH una vez completado el juego. Usar la siguiente línea en la consola de Remix para generar el hash de commit (ajustando los parámetros): ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode([ \"uint8\", \"uint\" ], [ \"0\", \"11111111111\" ]));",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"demicompa.sol": "MatchingPennies"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"demicompa.sol": {
+			"keccak256": "0x90b8122fe9e42a688310ae084ef0b0c4aac1d49e5e432cdc67f0dcf8f733d7c0",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ac312877f44a9608c975967a929dc48a6362dc845187642865336d955f35e4be",
+				"dweb:/ipfs/QmaPAfqiWDhy9xEaoRwjVLCfVx59FqjRrZTDuR9kCkRfZR"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,55 @@
+{
+	"compiler": {
+		"version": "0.8.23+commit.f704f362"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Changes include:  1. Remove Bancor's specific functions and replace SafeMath with OpenZeppelin's.  2. Change code from Contract to Library and change maxExpArray from being array     with binary search inside `findPositionInMaxExpArray` to a simple linear search.  3. Add requirement check that baseN >= baseD (this is always true for Bancor). Licensed under Apache Lisense, Version 2.0.",
+			"kind": "dev",
+			"methods": {},
+			"title": "BancorPower, modified from the original \"BancorFomula.sol\"        written by Bancor https://github.com/bancorprotocol/contracts",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"BancorPower.sol": "BancorPower"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BancorPower.sol": {
+			"keccak256": "0x57af7d4dbd6838243123a74ab2ffb1547105204c64d2f24d0352ea184c41db38",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d1de09b93e7d26869162c0ecc0bb08997a0efa35d41d3296bb8cfc96b70bd6fa",
+				"dweb:/ipfs/QmYSYmwummE7v3GA3ukHrkEwSjLnafXQzj5CN8QP7HZNoc"
+			]
+		},
+		"openzeppelin-solidity/contracts/math/SafeMath.sol": {
+			"keccak256": "0x0c1300c35c12691b679fb7084ffa234e0b02067a3bdeb0731c406df87144df9e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://60b3868bf8e52d578558e064a0456c0e22d23afa64d8d3e12edd6329a2b7a302",
+				"dweb:/ipfs/QmRzEYJmUfZ8DToEaLVaCbKg6GQgvnrTZamfQ5vsHZcZGr"
+			]
+		}
+	},
+	"version": 1
+}

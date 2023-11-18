@@ -1,7 +1,8 @@
-pragma solidity 0.5.9;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.9;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "../../bancor/BancorPower.sol";
+import "BancorPower.sol";
 
 
 library Equation {
