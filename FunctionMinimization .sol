@@ -8,48 +8,92 @@ contract FunctionMinimization {
 
     struct FunctionEntry {
         Equation.Node[] equation;
+        Equation.Node[] derivada;
         uint256 reward;
         address payable publisher;
         bool rewardPaid; 
+        uint endBlock;
     }
 
+    struct SubmitionEntry{
+        address payable submiter;
+        uint256 point; 
+        uint currentBlock;
+    } 
 
     FunctionEntry[] public functions;
+    mapping (uint=>SubmitionEntry[]) public submitions;
 
-    function publishFunction(uint256[] memory expressions) public payable {
+    function publishFunction(uint256[] memory expressions_equation, uint256[] memory expressions_derivada, uint tiempo) public payable {
         // Añadir una nueva entrada vacía al array 'functions'
         functions.push();
         uint256 functionIndex = functions.length - 1;
 
         // Configurar la nueva entrada
+
         FunctionEntry storage newEntry = functions[functionIndex];
+
         newEntry.reward = msg.value;  // Utiliza el valor enviado como recompensa
         newEntry.publisher = payable(msg.sender);
-
-        // Inicializar la ecuación con el array de expresiones proporcionado
-        Equation.init(newEntry.equation, expressions);
+        newEntry.endBlock = block.number + tiempo; // Cuanto tiempo va a estar disponible la entrega de mínimos
+        // Inicializar la función con el array de expresiones proporcionado
+        Equation.init(newEntry.equation, expressions_equation);
+        // Inicializar la derivada con el array de expresiones proporcionado
+        Equation.init(newEntry.derivada, expressions_derivada);
     }
 
 
     function submitMinimum(uint256 functionId, uint256 minimum) external payable{
-        require(functionId < functions.length, "Invalid function ID");
+        require(functionId < functions.length, "ID de funcion invalido");
+
         FunctionEntry storage funcEntry = functions[functionId];
 
+        require(funcEntry.endBlock >= block.number, "Ya cerro la subasta");
+        require(!funcEntry.rewardPaid, "Ya ha sido pagada la recompensa de esta funcion");
+
+        // Evaluamos que sea un punto critico
+        uint256 evaluatedValue = funcEntry.derivada.calculate(minimum);
+        require(evaluatedValue == 0, "No es un punto critico, busque uno que si lo sea.");
+
+        submitions[functionId].push(SubmitionEntry(payable(msg.sender),funcEntry.equation.calculate(minimum), block.number));
+    }
+
+
+    function claimReward(uint256 functionId) external payable{
+    
+        require(functionId < functions.length, "ID de funcion invalido, fuera de indice.");
+
+
+        FunctionEntry storage funcEntry = functions[functionId]; //Se recupera la funcion en cuestion
+
+        
+        require(funcEntry.endBlock < block.number, "La subasta sigue abierta");
         // Verificar que la recompensa aún no haya sido pagada
-        require(!funcEntry.rewardPaid, "Reward already paid");
-
-        // Evalúa la función en el valor mínimo propuesto
-        uint256 evaluatedValue = funcEntry.equation.calculate(minimum);
-        require(evaluatedValue == 0, "Not a valid minimum");
-
+        require(!funcEntry.rewardPaid,  "Ya ha sido pagada la recompensa de esta funcion");
+        
+        address bestSubmiter;
+        uint256 best_minimum; 
+        uint256 current_minimum;
+        uint arrayLength = submitions[functionId].length;
+        for (uint i=0; i<arrayLength; i++) {
+            current_minimum = submitions[functionId][i].point;
+            if (current_minimum < best_minimum)
+            {
+                best_minimum = current_minimum;
+                bestSubmiter = submitions[functionId][i].submiter;
+            }
+        }
+       
         // Verificar que hay suficiente balance en el contrato para pagar la recompensa
         require(address(this).balance >= funcEntry.reward, "Insufficient balance in contract");
 
         // Transfiere la recompensa al remitente y marca como pagada
+        if(bestSubmiter == msg.sender){
+            payable(msg.sender).transfer(funcEntry.reward);
+            funcEntry.rewardPaid = true; // Marcar la recompensa como pagada
+        }
 
-        payable(msg.sender).transfer(funcEntry.reward);
-
-        funcEntry.rewardPaid = true; // Marcar la recompensa como pagada
+       
     }
 
   // The receive function is called when Ether is sent to the contract with no calldata
